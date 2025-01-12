@@ -18,6 +18,12 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
+// serve React app from build folder when accessing any route that isnt handled by API
+// app.use(express.static(path.join(__dirname, "client", "dist")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+// });
+
 app.use("/users", users);
 
 // catch 404 and forward to error handler
@@ -39,10 +45,31 @@ app.use(function (err, req, res, next) {
 });
 
 app.set("port", process.env.PORT || 3000);
+const PORT = app.get("port");
+// var server = app.listen(app.get("port"), function () {
+//   log.info(
+//     "Express server listening on http://localhost:%d",
+//     server.address().port
+//   );
+// });
 
-var server = app.listen(app.get("port"), function () {
-  log.info(
-    "Express server listening on http://localhost:%d",
-    server.address().port
-  );
+const server = app.listen(PORT, () => {
+  log.info(`Express server listening on http://localhost:${PORT}`);
+});
+
+server.on("error", (err) => {
+  if (err.code === "EADDRINUSE") {
+    log.error(`PORT ${PORT} is already in use. Please use a different route`);
+  } else {
+    log.error(`Failed to start server: ${err.message}`);
+  }
+});
+
+// Add listeners to clean up resources (e.g., database connections) when the server shuts down.
+process.on("SIGTERM", () => {
+  log.info("SIGTERM signal received. Closing server gracefully...");
+  server.close(() => {
+    log.info("Server closed.");
+    process.exit(0);
+  });
 });

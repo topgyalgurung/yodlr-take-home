@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Table } from "reactstrap";
 const Admin = () => {
   const [users, setUsers] = useState([]);
   // fetch users when the component mounts
@@ -27,7 +28,7 @@ const Admin = () => {
       {users.length === 0 ? (
         <p> No users found</p>
       ) : (
-        <table>
+        <Table bordered>
           <thead>
             <tr>
               <th>First name: </th>
@@ -46,8 +47,11 @@ const Admin = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       )}
+      <p>
+        <a href="/signup">Signup Page</a>
+      </p>
     </div>
   );
 };
