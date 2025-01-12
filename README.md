@@ -2,6 +2,10 @@ Yodlr Front End Engineer Code/Design Challenge
 
 ## Overview
 
+![Admin](https://github.com/topgyalgurung/yodlr-take-home/blob/master/img/Adminpage.png) 
+![SignUp](https://github.com/topgyalgurung/yodlr-take-home/blob/master/img/SingupPage.png)
+
+
 This app does two things:
 * Hosts static content from the 'public' directory
 * Serves a JSON REST API for [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on users stored in memory
