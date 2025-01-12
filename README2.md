@@ -1,5 +1,5 @@
 - Admin
-![admin page] (img/admin users.png)
+![admin page](https://github.com/topgyalgurung/yodlr-take-home/blob/master/img/admin%20users.png)
 Errors:
 - code uses older version of winston library
 Solve:
