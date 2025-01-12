@@ -1,28 +1,7 @@
 Yodlr Front End Engineer Code/Design Challenge
-=======================
-
-Hello!
-
-We're excited that you're interested in joining the [Yodlr](https://getyodlr.com) team.  In the past, we have
-brought potential engineering candidates into our office for a full-day
-technical interview.  This interview would include whiteboard programming
-exercises, code reviews, and other thought exercises.  Unfortunately, onsite technical interviews are often biased against people who are not comfortable being put on the spot.  Not to mention, who _actually_ codes on a whiteboard in real life?  In short,  we realized that we
-were evaluating candidates in an unusual situation.
-
-So instead, we've come up with this relatively open-ended programming/design
-challenge that will allow you to demonstrate your skills from the comfort
-of your own workspace.  In addition, we know your time is valuable, so please
-feel free to use your completed work as a portfolio piece.
-
-We wish you the best of luck and can't wait to see what you create!
-
-Thanks,  
-Team Yodlr (Jared, Tom, & Ross)
 
 ## Overview
 
-We have provided you with a simple [NodeJS](https://nodejs.org)
-application server for user registration and administration.
 This app does two things:
 * Hosts static content from the 'public' directory
 * Serves a JSON REST API for [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on users stored in memory
@@ -36,14 +15,7 @@ In terms of design & layout, we leave that entirely up to you.  We are familiar 
 
 ## Getting Started
 
-To use this application, you will need to download and install [NodeJS](http://nodejs.org/download/).
-
-Once you have NodeJS installed, you have two choices for downloading this source code:
-
-1. Download & extract a [zip file](https://github.com/yodlr/frontend-code-challenge/archive/master.zip) of the source  
-2. Fork this repository and git clone your fork
-
-Next, you need to install the package dependencies by running the following command in the top-level directory of this source tree:
+you need to install the package dependencies by running the following command in the top-level directory of this source tree:
 ```
 npm install
 ```
