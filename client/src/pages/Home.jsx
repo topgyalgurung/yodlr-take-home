@@ -8,7 +8,8 @@ const Home = () => {
       <p>
         <nav>
           <NavLink to="signup"> Registration Page</NavLink>
-          <NavLink to="admin">Admin Page</NavLink>
+          <br />
+          <NavLink to="admin"> Admin Page</NavLink>
         </nav>
         <Outlet />
         {/* <a href="/signup.html">Registration Page</a>

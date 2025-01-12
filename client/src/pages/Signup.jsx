@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { Form, Label, FormGroup, Button, Input } from "reactstrap";
 
 const Signup = () => {
   const INITIAL_STATE = {
     firstName: "",
     lastName: "",
     email: "",
+    status: "",
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [isInvalid, setIsInvalid] = useState(true);
@@ -27,7 +29,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email } = formData;
+    const { firstName, lastName, email, status } = formData;
 
     if (!isInvalid) {
       try {
@@ -37,10 +39,10 @@ const Signup = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ firstName, lastName, email, status }),
         });
         if (response.ok) {
-          alert(`Created user with email ${email}`);
+          alert(`Created a user with email ${email} & status ${status}`);
         } else {
           alert("Failed to send email");
         }
@@ -56,22 +58,60 @@ const Signup = () => {
   return (
     <div>
       <h1>Yodlr Registration Portal</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
+      <>
+        <Form onSubmit={handleSubmit}>
+          <FormGroup floating>
+            <Input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
+            />
+            <Label for="firstName"> First Name</Label>
+          </FormGroup>
+          {""}
+          <FormGroup floating>
+            <Input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
+            />
+            <Label for="lastName"> Last Name</Label>
+          </FormGroup>
+          {""}
+          <FormGroup floating>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <Label for="Email"> Email </Label>
+          </FormGroup>
+          {""}
+          <FormGroup floating>
+            <Input
+              type="text"
+              name="status"
+              placeholder="Status"
+              value={formData.status}
+              onChange={handleChange}
+            />
+            <Label for="firstName"> Status</Label>
+          </FormGroup>
 
-        <button type="submit">Submit</button>
-        <br />
-        {isTouched && isInvalid && (
-          <span style={{ color: "red" }}>Email can not be blank</span>
-        )}
-      </form>
+          <Button type="submit">Submit</Button>
+          <br />
+          {isTouched && isInvalid && (
+            <span style={{ color: "red" }}>Email can not be blank</span>
+          )}
+        </Form>
+      </>
+      {""}
       <p>
         <a href="/admin">Admin Page</a>
       </p>
